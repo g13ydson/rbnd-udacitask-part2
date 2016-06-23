@@ -1,13 +1,20 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+	formatador gem. to format the output in table format
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) change_priority: change the priority of "TodoItem" passing as a parameter (index and priority)
+  b) delete_multiply: delete multiple items based on id list
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+	I spent a few hours. This project is apparently more complicated, but following all the steps and looking at the API it is simpler.
 2. What was the most rewarding challenge you conquered?
+	the most rewarding for me was to create the method "delete_multiply". I wanted a simple way to do this, so I studied some API functions.
 3. What two additional features did you build? Why?
+	I created two additional features suggested in the project. I believe they are simpler to implement.
+	Allow deletion of multiple items
+	Change the priority levels of items
 4. Where do you still have room to grow?
+	I have room to grow making my code becomes cleaner.
