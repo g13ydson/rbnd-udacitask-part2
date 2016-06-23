@@ -46,4 +46,13 @@ new_list.all
 
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
-new_list.filter("event")
+new_list.filter("todo")
+# CHANGE ITEM PRIORITY BY ITEM INDEX
+# ------------------------
+new_list.change_priority(1,"high")
+
+new_list.all
+
+new_list.delete_multiply(1,2,3)
+
+new_list.all

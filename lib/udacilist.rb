@@ -32,6 +32,14 @@ class UdaciList
     end
   end
 
+  def change_priority(index,priority)
+    @items[index-1].is_a?(TodoItem) ? @items[index-1].change_priority(priority) : nil
+  end
+
+  def delete_multiply(*args)
+    @items.delete_if.with_index { |_, index| args.include? index+1 }
+  end
+
   private
 
   def check_type(typeItem)

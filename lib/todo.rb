@@ -30,4 +30,8 @@ class TodoItem
     end
   end
 
+  def change_priority(priority)
+    ["high", "medium", "low", nil].include? priority ? @priority = priority : nil
+  end
+
 end
