@@ -20,6 +20,18 @@ class UdaciList
     res = @items.each_with_index.map { |item,position| {item: position + 1, details: item.details} }
     Formatador.display_table(res,[:item,:details])    
   end
+
+  def filter(type)
+    list = get_list_by_type(type)
+    if list.length == 0 
+      puts "There is no such item"
+    else
+      list.each do |item|
+        puts "#{item.class.to_s[0...-4]}: #{item.description}"
+      end  
+    end
+  end
+
   private
 
   def check_type(typeItem)
@@ -31,6 +43,16 @@ class UdaciList
   def check_delete(index)
     if index > @items.length 
       raise UdaciListErrors::IndexExceedsListSize, "'#{index}' IndexExceedsListSize error"
+    end
+  end
+
+  def get_list_by_type(type)
+    if type == "event"
+        @items.find_all {|item| item.is_a?(EventItem)}
+    elsif type == "link"
+        @items.find_all {|item| item.is_a?(LinkItem)}
+    else
+        @items.find_all {|item| item.is_a?(TodoItem)}
     end
   end
 
