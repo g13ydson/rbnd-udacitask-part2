@@ -53,14 +53,6 @@ new_list.change_priority(1,"high")
 
 new_list.all
 
-new_list.delete_multiply(1,3)
+new_list.delete_multiply(4,1,8)
 new_list.all
 
-new_list.delete_multiply(1,2)
-new_list.all
-
-new_list.delete_multiply(2,4)
-new_list.all
-
-new_list.delete_multiply(1,4)
-new_list.all

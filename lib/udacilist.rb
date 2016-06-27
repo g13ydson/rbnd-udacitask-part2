@@ -42,7 +42,8 @@ class UdaciList
   end
 
   def delete_multiply(*args)
-    @items.delete_if.with_index { |_, index| args.include? index+1 }
+    args.reverse!
+    @items.delete_if.with_index { |_, index| args.include? index+1}
   end
 
   private
