@@ -7,11 +7,14 @@ class UdaciList
   end
   def add(type, description, options={})
     type = type.downcase
-    check_type(type)
-    @items.push TodoItem.new(description, options) if type == "todo"
-    @items.push EventItem.new(description, options) if type == "event"
-    @items.push LinkItem.new(description, options) if type == "link"
+    allowed_types = { todo: TodoItem, link: LinkItem, event: EventItem }
+    if allowed_types.keys.include? type.to_sym
+      @items.push allowed_types[type.to_sym].new description, options
+    else
+      raise UdaciListErrors::InvalidItemType, "#{type} type doesn't exist"
+    end
   end
+
   def delete(index)
     check_delete(index)
     @items.delete_at(index - 1)
