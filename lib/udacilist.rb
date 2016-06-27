@@ -17,8 +17,10 @@ class UdaciList
     @items.delete_at(index - 1)
   end
   def all
+    formatador = Formatador.new
+    formatador.display_line("*"*30 +"#{@title.upcase}"+"*"*30)
     res = @items.each_with_index.map { |item,position| {item: position + 1, details: item.details} }
-    Formatador.display_table(res,[:item,:details])    
+    formatador.display_table(res,[:item, :"details"])    
   end
 
   def filter(type)
