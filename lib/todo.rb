@@ -8,20 +8,11 @@ class TodoItem
     check_priority(options[:priority])
     @priority = options[:priority]
   end
-  
-  def format_priority
-    value =  case @priority
-    when "high" then " ⇧".colorize(:red)
-    when "medium" then " ⇨".colorize(:yellow)
-    when "low" then " ⇩".colorize(:green)
-    else ""
-    end
-  end
 
   def details
     format_description(description) + "due: " +
     format_date(due: due) +
-    format_priority
+    format_priority(priority)
   end
 
   def check_priority(priority)

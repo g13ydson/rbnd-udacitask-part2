@@ -17,9 +17,13 @@ module Listable
   	end
   end
 
-  #I do not understand why "format priority" because this method is used only for "TodoItem"
-  def format_priority
-  	
+  def format_priority(priority)
+    value =  case priority
+    when "high" then " ⇧".colorize(:red)
+    when "medium" then " ⇨".colorize(:yellow)
+    when "low" then " ⇩".colorize(:green)
+    else ""
+    end
   end
 
 end
