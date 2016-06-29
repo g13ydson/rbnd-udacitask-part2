@@ -22,8 +22,8 @@ class UdaciList
   def all
     formatador = Formatador.new
     formatador.display_line("*"*30 +"#{@title.upcase}"+"*"*30)
-    res = @items.each_with_index.map { |item,position| {item: position + 1, details: item.details} }
-    formatador.display_table(res,[:item, :"details"])    
+    res = @items.each_with_index.map { |item,position| {item: position + 1, type:item.class.to_s[0...-4],name: item.description, details: item.details} }
+    formatador.display_table(res,[:item, :type, :"name", :"details"])    
   end
 
   def filter(type)
@@ -36,10 +36,6 @@ class UdaciList
     else
       res = list.each_with_index.map {|item,position| {num:position + 1, type:item.class.to_s[0...-4], name: item.description, details: item.details}}
       formatador.display_table(res,[:num,:type, :"name", :details])    
-
-      #list.each do |item|
-       # puts "#{item.class.to_s[0...-4]}: #{item.description}"
-      #end  
     end
   end
 
